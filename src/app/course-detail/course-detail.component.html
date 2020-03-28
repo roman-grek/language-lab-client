@@ -1,0 +1,24 @@
+<h2>Подробности о курсе</h2> 
+
+<hr/>
+<div *ngIf="course">
+  <div>
+    <label><b>Название: </b></label> {{course.name}}
+  </div>
+  <div>
+    <label><b>Язык: </b></label> {{course.language}}
+  </div>
+  <div>
+    <label><b>Уровень языка: </b></label> {{course.level}}
+  </div>  
+  <div>
+    <label><b>Цена: </b></label> {{course.price}}
+  </div>  
+  <div>
+    <label><b>Занятий в неделю: </b></label> {{course.classesCount}}
+  </div>  
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Назад к списку</button><br>
