@@ -28,6 +28,7 @@ export class CreateCourseComponent implements OnInit {
   }
 
   save() {
+    console.log(this.course)
     this.courseService.createCourse(this.course)
       .subscribe(data => console.log(data), error => console.log(error));
     this.course = new Course();

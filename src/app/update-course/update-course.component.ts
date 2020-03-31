@@ -13,6 +13,7 @@ export class UpdateCourseComponent implements OnInit {
 
   id: number;
   course: Course;
+  submitted: boolean = false;
 
   constructor(
     private courseService: CourseService,
@@ -40,6 +41,7 @@ export class UpdateCourseComponent implements OnInit {
   }
 
   onSubmit() {
+    this.submitted = true;
     this.updateCourse();    
   }
 
