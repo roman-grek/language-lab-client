@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class CourseService {
 
-  private baseUrl = 'http://localhost:8080/api/v1/courses';
+  private baseUrl = 'https://language-lab-server.herokuapp.com/api/v1/courses';
 
   constructor(
     private http: HttpClient
