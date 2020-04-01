@@ -37,6 +37,10 @@ export class CoursesListComponent implements OnInit {
       error => console.log(error));
   }
 
+  addCourse() {
+    this.router.navigate(['add']);
+  }
+
   courseDetails(id: number) {
     this.router.navigate(['details', id]);
   }

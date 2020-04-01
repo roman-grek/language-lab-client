@@ -9,6 +9,7 @@ import { CreateCourseComponent } from './create-course/create-course.component';
 import { CoursesListComponent } from './courses-list/courses-list.component';
 import { CourseDetailComponent } from './course-detail/course-detail.component';
 import { UpdateCourseComponent } from './update-course/update-course.component';
+import { TopBarComponent } from './top-bar/top-bar.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { UpdateCourseComponent } from './update-course/update-course.component';
     CreateCourseComponent,
     CoursesListComponent,
     CourseDetailComponent,
-    UpdateCourseComponent
+    UpdateCourseComponent,
+    TopBarComponent
   ],
   imports: [
     BrowserModule,
