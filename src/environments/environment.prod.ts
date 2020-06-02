@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiUrl: 'https://language-lab-server.herokuapp.com/api/v1/users'
 };

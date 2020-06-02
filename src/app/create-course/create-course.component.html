@@ -1,7 +1,9 @@
-<h3>Добавить курс</h3>
-<div [hidden]="submitted" style="width: 400px;">
+<div class="row justify-content-center">
+  <h3>Добавить курс</h3>
+</div>
+<div [hidden]="submitted" class="center">
   <form (ngSubmit)="onSubmit()">
-    <div class="form-group">
+    <div class="form-group"> 
       <label for="name">Название</label>
       <input type="text" class="form-control" id="courseName" required [(ngModel)]="course.name" name="name">
     </div>

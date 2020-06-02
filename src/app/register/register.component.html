@@ -1,0 +1,27 @@
+<div class="container col-lg-6">
+    <h1 class="text-center">Зарегистрироваться</h1>
+    <div class="card">
+      <div class="card-body">
+        <form class="form-group">
+          <div class="alert alert-warning" *ngIf='invalidRegister'>{{errorMessage}}</div>
+          <div class="alert alert-success" *ngIf='registerSuccess'>{{successMessage}}</div>
+          <div class="form-group">
+            <label for="email">Имя пользователя:</label>
+            <input type="text" class="form-control" id="username" [(ngModel)]="username" placeholder="Введите имя пользователя..."
+              name="username">
+          </div>
+          <div class="form-group">
+            <label for="pwd">Пароль:</label>
+            <input type="password" class="form-control" [(ngModel)]="password" id="password" placeholder="Введите пароль..."
+              name="password">
+          </div>
+          <div class="form-group">
+            <label for="pwd">Повторите пароль:</label>
+            <input type="password" class="form-control" [(ngModel)]="passwordRepeat" id="passwordRepeat" placeholder="Повторите пароль..."
+              name="passwordRepeat">
+          </div>
+          <button (click)=handleRegister() class="btn btn-success">Создать аккаунт</button>
+        </form>
+      </div>
+    </div>
+  </div>

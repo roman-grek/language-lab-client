@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthenticationService } from '../_service/auth.service';
+import { User, Role } from '../_models';
 
 @Component({
   selector: 'app-top-bar',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopBarComponent implements OnInit {
 
-  constructor() { }
+  user: User;
 
-  ngOnInit(): void {
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private authenticationService: AuthenticationService) { 
+      this.authenticationService.user.subscribe(x => this.user = x);
+    }
+
+  ngOnInit() { }
+
+  get isAdmin() {
+    return this.user && this.user.role === Role.Admin;
+  }
+
+  logout() {
+    this.authenticationService.logout();
   }
 
 }

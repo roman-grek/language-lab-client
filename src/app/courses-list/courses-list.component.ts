@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from "rxjs";
 import { Router } from '@angular/router';
 
-import { Course } from '../course';
-import { CourseService } from '../course.service';
+import { Course } from '../_models/course';
+import { CourseService } from '../_service/course.service';
 
 @Component({
   selector: 'app-courses-list',
