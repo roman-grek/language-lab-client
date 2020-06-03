@@ -4,7 +4,6 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://language-lab-server.herokuapp.com/api/v1/users'
 };
 
 /*

@@ -10,13 +10,14 @@ import { CreateCourseComponent } from './create-course/create-course.component';
 import { CoursesListComponent } from './courses-list/courses-list.component';
 import { CourseDetailComponent } from './course-detail/course-detail.component';
 import { UpdateCourseComponent } from './update-course/update-course.component';
-import { TopBarComponent } from './top-bar/top-bar.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { RegisterComponent } from './register/register.component';
 import { AdminComponent } from './admin/admin.component';
 import { HomeComponent } from './home/home.component';
-import { JwtInterceptor, ErrorInterceptor } from './_helpers';
+import { ProfileComponent } from './profile/profile.component';
+
+import { authInterceptorProviders } from './_helpers/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -25,12 +26,12 @@ import { JwtInterceptor, ErrorInterceptor } from './_helpers';
     CoursesListComponent,
     CourseDetailComponent,
     UpdateCourseComponent,
-    TopBarComponent,
     LoginComponent,
     LogoutComponent,
     RegisterComponent,
     AdminComponent,
-    HomeComponent
+    HomeComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -39,10 +40,7 @@ import { JwtInterceptor, ErrorInterceptor } from './_helpers';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-  ],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

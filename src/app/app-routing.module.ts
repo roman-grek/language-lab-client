@@ -10,23 +10,22 @@ import { LogoutComponent } from './logout/logout.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
-import { AuthGuard } from './_helpers';
-import { Role } from './_models';
+import { ProfileComponent } from './profile/profile.component';
+
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard],
-    data: { roles: [Role.Admin]}},
+  { path: 'home', component: HomeComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'admin', component: AdminComponent },
   { path: 'courses', component: CoursesListComponent },
-  { path: 'add', component: CreateCourseComponent, canActivate: [AuthGuard],
-    data: { roles: [Role.Admin]}},
-  { path: 'update/:id', component: UpdateCourseComponent, canActivate: [AuthGuard],
-    data: { roles: [Role.Admin]}},
+  { path: 'add', component: CreateCourseComponent },
+  { path: 'update/:id', component: UpdateCourseComponent },
   { path: 'details/:id', component: CourseDetailComponent },
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: LogoutComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'profile', component: ProfileComponent },
 
   // otherwise redirect to home
   { path: '**', redirectTo: '' }

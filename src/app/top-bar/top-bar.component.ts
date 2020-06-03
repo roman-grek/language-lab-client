@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthenticationService } from '../_service/auth.service';
+import { AuthService } from '../_service/auth.service';
 import { User, Role } from '../_models';
 
 @Component({
@@ -15,7 +15,7 @@ export class TopBarComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private authenticationService: AuthenticationService) { 
+    private authenticationService: AuthService) { 
       this.authenticationService.user.subscribe(x => this.user = x);
     }
 
