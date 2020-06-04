@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 import { Course } from '../_models/course';
 import { CourseService } from '../_service/course.service';
+import { TokenStorageService } from '../_service/token-storage.service';
 
 @Component({
   selector: 'app-courses-list',
@@ -13,14 +14,25 @@ import { CourseService } from '../_service/course.service';
 export class CoursesListComponent implements OnInit {
 
   courses: Observable<Course[]>;
+  isLoggedIn = false;
+  showAdminBoard = false;
 
   constructor(
     private courseService: CourseService,
+    private tokenStorageService: TokenStorageService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
     this.reloadData();
+
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
+
+    if (this.isLoggedIn) {
+      const user = this.tokenStorageService.getUser();
+
+      this.showAdminBoard = user.roles.includes('ROLE_ADMIN');
+    }
   }
 
   reloadData() {

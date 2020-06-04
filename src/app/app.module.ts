@@ -18,6 +18,8 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
+import { SecretComponent } from './secret/secret.component';
+import { TeacherComponent } from './teacher/teacher.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     RegisterComponent,
     AdminComponent,
     HomeComponent,
-    ProfileComponent
+    ProfileComponent,
+    SecretComponent,
+    TeacherComponent
   ],
   imports: [
     BrowserModule,

@@ -10,7 +10,9 @@ import { LogoutComponent } from './logout/logout.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
+import { TeacherComponent } from './teacher/teacher.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SecretComponent } from './secret/secret.component';
 
 
 
@@ -18,6 +20,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'admin', component: AdminComponent },
+  { path: 'teacher', component: TeacherComponent },
   { path: 'courses', component: CoursesListComponent },
   { path: 'add', component: CreateCourseComponent },
   { path: 'update/:id', component: UpdateCourseComponent },
@@ -26,6 +29,7 @@ const routes: Routes = [
   { path: 'logout', component: LogoutComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
+  { path: 'secret', component: SecretComponent },
 
   // otherwise redirect to home
   { path: '**', redirectTo: '' }

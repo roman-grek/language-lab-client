@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../_service/user.service';
+import { UserService } from '../_service';
+import { User } from '../_models';
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-admin',
@@ -7,18 +10,25 @@ import { UserService } from '../_service/user.service';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-  content = '';
+  users: Observable<User[]>;
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.userService.getAdminBoard().subscribe(
+    this.reloadData();
+  }
+
+  reloadData() {
+    this.users = this.userService.getUsersList();
+  }
+
+  deleteUser(id: number) {
+    this.userService.deleteUser(id)
+    .subscribe(
       data => {
-        this.content = data;
+        console.log(data);
+        this.reloadData();
       },
-      err => {
-        this.content = JSON.parse(err.error).message;
-      }
-    );
+      error => console.log(error));
   }
 }

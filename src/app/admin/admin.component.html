@@ -1,5 +1,30 @@
-<div class="container">
-    <header class="jumbotron">
-      <p>{{ content }}</p>
-    </header>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+      <h2>Пользователи сайта</h2>
   </div>
+
+  <div class="panel-body">
+      <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Имя пользователя</th>
+              <th>Email</th>
+              <th>Пароль</th>
+              <th>Действия</th>
+            </tr>
+          </thead>
+          
+          <tbody>
+              <tr *ngFor="let user of users | async">
+                  <td>{{ user.username }}</td>
+                  <td>{{ user.email }}</td>
+                  <td>{{ user.password }}</td>
+                  <td>
+                      <button (click)="deleteUser(user.id)" class="btn btn-danger">Удалить</button>
+                  </td>
+
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>
